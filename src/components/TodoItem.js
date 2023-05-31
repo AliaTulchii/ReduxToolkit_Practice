@@ -25,7 +25,7 @@ const TodoItem = ({todo}) => {
             </div>
             <button
                 onClick={()=>removeTodoHandler(todo.id)}
-                className='text-sm px-4 py-2 flex bg-red-400 hover:bg-red-500 transition-all text-white cursor-pointer'>
+                className='text-sm px-4 py-2 flex bg-pink-400 hover:bg-pink-500 transition-all text-white cursor-pointer'>
                 Delete
             </button>
         </div>
