@@ -1,16 +1,31 @@
+import { toggleCompletedTodo, removeTodo } from 'feature/todo/todoSlice';
 import React from 'react'
+import { useDispatch } from 'react-redux'
 
-const TodoItem = () => {
-    const completed = false
+const TodoItem = ({todo}) => {
+    const dispatch = useDispatch();
+
+    const toggleTodoHandler = (id) => {
+        dispatch(toggleCompletedTodo(id))
+    }
+
+
+    const removeTodoHandler = (id) => {
+        dispatch(removeTodo(id))
+    }
     return (
         <div className='flex justify-between items-center my-2'>
-            <button className='text-sm px-4 py-2 cursor-pointer bg-lime-300 hover:bg-lime-400'>
+            <button
+                onClick={() => toggleTodoHandler(todo.id)}
+                className='text-sm px-4 py-2 cursor-pointer bg-cyan-300 hover:bg-cyan-400'>
                 Complete
             </button>
-            <div className={`text-sm ${completed ? 'line-through font-medium text-lime-400' : ''}`}>
-                Todo Text
+            <div className={`text-black  ${todo.completed ? 'line-through font-medium text-lime-400' : ''}`}>
+               {todo.text}
             </div>
-            <button className='text-sm px-4 py-2 flex bg-red-400 hover:bg-red-500 transition-all text-white cursor-pointer'>
+            <button
+                onClick={()=>removeTodoHandler(todo.id)}
+                className='text-sm px-4 py-2 flex bg-red-400 hover:bg-red-500 transition-all text-white cursor-pointer'>
                 Delete
             </button>
         </div>
