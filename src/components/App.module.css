@@ -1,0 +1,12 @@
+
+.App{
+    height: 1200px;
+    padding: 24px;
+}
+
+.AppBox{
+    display: flex;
+    
+    gap: 30px;
+   
+}
